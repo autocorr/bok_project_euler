@@ -1,0 +1,7 @@
+( multiple_3or5  [3 % 0 ==] [5 % 0 ==] bi or )
+( nmax  1000 )
+
+( solve
+  nmax range
+  [multiple_3or5] filter
+  sum )

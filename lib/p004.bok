@@ -1,0 +1,16 @@
+( palind d"Palindrome numbers"
+  ( copy_reversed d"( s -- s' )" [None None -1] slice get )
+  ( is_a d"( n -- ? )"  str copy_reversed == )
+  ( check_pair d"( [n m] -- ? )"  eval * is_a ) )
+
+( solve  d"(  -- n m )"
+  [999 900 -1] range
+  [ [999 900 -1] range
+    [ over list2
+      [ palind.check_pair ]
+      [ nip return ]
+      [ drop ]
+      if ]
+    foreach drop ]
+  foreach )
+

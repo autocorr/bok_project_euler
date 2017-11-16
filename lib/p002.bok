@@ -1,0 +1,19 @@
+( fib_nr d""" ( n -- f(n) )
+  Fibonacci via naive recursion.
+  """
+  [2 <] [] [[1 - fib_nr] [2 - fib_nr] bi +] if
+)
+
+( fibt_it d""" ( n -- f(n) )
+  Fibonacci via iteration on the stack.
+  """
+  0 1 rot [swap over +] repeat nip
+)
+
+( even  2 % 0 == )
+( fmax  4e6 )
+( nmax  33 )
+
+( solve
+  nmax range [fib_it] map [even] filter sum
+)
